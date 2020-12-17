@@ -1,0 +1,40 @@
+{% extends 'Nursery_App/base.html' %}
+
+{% block card %}
+
+<div id='shop' class="container row">
+  <ul>
+    {% if user.is_authenticated %}
+      <li><a href="{% url 'Nursery_App:logout' %}" class="black-text">LogOut</a></li>
+    {% else %}
+      <li><a href="{% url 'Nursery_App:signup' %}" class="black-text">SignUp</a></li>
+      <li><a href="{% url 'Nursery_App:login_page' %}" class="black-text">LogIn</a></li>              
+    {% endif %}
+    
+    <!-- <div id="home-icons" class="right" style="margin-top: 7px;">
+        <li><a class="material-icons black-text">search</li>
+        <li><a class="material-icons black-text" href="{% url 'Nursery_App:dashboard' %}">account_circle</li>
+        <li><a class="material-icons black-text" href="{% url 'Nursery_App:cart' %}">shopping_cart</a></li>
+    </div> -->
+  </ul>
+  {% for plant in plants %}
+    <div class="center col s12 m12 l4" style="margin-top: 50px;">
+      <div class="card">
+        <div class="card-image">
+          <img src="{{ plant.image.url }}" style="height: 300px;">
+          <span class="card-title white-text">{{ plant.name|title }}</span>
+          <a class="btn-floating halfway-fab waves-effect waves-light green darken-4" href="{% url 'Nursery_App:cart_action' plant.id 1 %}"><i class="material-icons">add_shopping_cart</i></a>
+        </div>
+        <div class="card-content">
+          <left>
+            <p>{{ plant.description }}</p>
+            <p>By {{ plant.manager.nursery }}</p>
+            <p>Rs. {{ plant.price }}</p>
+          </left>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="../../../media/css/style.css">
+    <title>Nursery</title>
+
+<style>
+  .text-block {
+  position: absolute;
+  top: 350px;
+  left: 100px;
+  color: white;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+html{
+  scroll-behavior: smooth;
+}
+</style>
+
+</head>
+<body>
+    
+  <nav class="nav-center white" style="min-height: 150px;">
+    <div class="nav-wrapper">
+        <a href="{% url 'Nursery_App:home' %}" class="brand-logo center"><img src="../../../media/logo/plant.svg" width="100%" height="100px"></a>
+        <!-- <ul>
+          {% if user.is_authenticated %}
+            <li><a href="{% url 'Nursery_App:logout' %}" class="black-text">LogOut</a></li>
+          {% else %}
+            <li><a href="{% url 'Nursery_App:signup' %}" class="black-text">SignUp</a></li>
+            <li><a href="{% url 'Nursery_App:login_page' %}" class="black-text">LogIn</a></li>              
+          {% endif %}
+          
+          <!-- <div id="home-icons" class="right" style="margin-top: 7px;">
+              <li><a class="material-icons black-text">search</li>
+              <li><a class="material-icons black-text" href="{% url 'Nursery_App:dashboard' %}">account_circle</li>
+              <li><a class="material-icons black-text" href="{% url 'Nursery_App:cart' %}">shopping_cart</a></li>
+          </div> -->
+        </ul> -->
+    </div>
+  </nav>
+   
+  {% block card %}
+  {% endblock %}
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+</html>
